@@ -3,6 +3,8 @@ import 'package:weather_app/screens/location_screen.dart';
 import 'package:weather_app/services/location.dart';
 import 'package:weather_app/services/networking.dart';
 
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 const String apiKey = '565b2883c54ac9bf1d0fb75c6b2b9957';
 
 class LoadingScreen extends StatefulWidget {
@@ -33,13 +35,19 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     var weatherData = await networkHelper.getData();
 
-    Navigator.push(context, MaterialPageRoute(builder: (context)  {
-      return LocationScreen() ;
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen();
     }));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+        body: Center(
+      child: SpinKitWave(
+        color: Colors.white,
+        size: 100.0,
+      ),
+    ));
   }
 }
