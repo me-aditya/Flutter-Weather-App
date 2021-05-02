@@ -14,6 +14,7 @@ class _LocationScreenState extends State<LocationScreen> {
   String cityName;
   int temperature;
   int condition;
+  
 
   WeatherModel weatherModel = new WeatherModel();
   @override
@@ -53,7 +54,10 @@ class _LocationScreenState extends State<LocationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      var weatherData = await weatherModel.getLocationWeather();
+                      return updateUI(weatherData);
+                    },
                     child: Icon(
                       Icons.near_me,
                       size: 50.0,
