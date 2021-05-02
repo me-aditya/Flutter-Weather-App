@@ -14,7 +14,6 @@ class _LocationScreenState extends State<LocationScreen> {
   String cityName;
   int temperature;
   int condition;
-  
 
   WeatherModel weatherModel = new WeatherModel();
   @override
@@ -64,7 +63,9 @@ class _LocationScreenState extends State<LocationScreen> {
                     ),
                   ),
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/city');
+                    },
                     child: Icon(
                       Icons.location_city,
                       size: 50.0,
